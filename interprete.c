@@ -1,5 +1,58 @@
+#include <stdio.h>
+#include <string.h>
+#include "interprete.h"
 
-void validar_archivo(const char *nombre_archivo) {
+
+int interprete(char texto[50]){  // ejecutar o salir
+    char *delimitador = " \n";
+    char *token;
+    char copia_texto[50];
+    int bandera=0;
+    char nombre_archivo[20];
+    int comando_valido;
+
+
+if (strcmp(texto, "salir\n") == 0 || strcmp(texto, "Salir\n") == 0 || strcmp(texto, "SALIR\n") == 0) {
+            printf("Saliendo...\n");
+            bandera = 1;
+        } else {
+            comando_valido = 0;
+
+            token = strtok(texto, delimitador);
+            
+            // Primer token debe ser "ejecutar"
+            if (token != NULL && strcmp(token, "ejecutar") == 0) {
+                // Segundo token debe ser el nombre del archivo
+                token = strtok(NULL, delimitador);
+                
+                if (token != NULL) {
+                    // Verificar extensión .asm
+                    char *punto = strrchr(token, '.');
+                    if (punto != NULL && strcmp(punto, ".asm") == 0) {
+                        printf("Archivo válido: %s\n", token);
+                        comando_valido = 1;
+                        
+                        // Aquí puedes procesar el archivo...
+                        strcpy(nombre_archivo, token);  // ahora sí guardamos el nombre
+                        validar_archivo(nombre_archivo);
+                        
+                    } else {
+                        printf("Error: El archivo debe tener extensión .asm\n");
+                    }
+                } else {
+                    printf("Error: Falta el nombre del archivo\n");
+                }
+            }
+            
+            if (!comando_valido && token != NULL) {
+                printf("Instrucción no válida\n");
+            }
+        }
+        return bandera;
+}
+
+
+void validar_archivo(char *nombre_archivo) {
     FILE *archivo = fopen(nombre_archivo, "r");
 
     char linea[256];
@@ -57,8 +110,8 @@ void validar_archivo(const char *nombre_archivo) {
             }
 
             *coma = '\0'; // ya parto ese token en dos, si hay coma lo separo en registro y valor
-            int *registro = segundo_parte_en_linea;
-            int *valor = coma + 1; // avanza enla coma que ahora es \0 y apunta a valor
+            char *registro = segundo_parte_en_linea;
+            char *valor = coma + 1; // avanza enla coma que ahora es \0 y apunta a valor
 
             if (!(strcmp(registro, "Ax") == 0 || strcmp(registro, "Bx") == 0 || strcmp(registro, "Cx") == 0 || strcmp(registro, "Dx") == 0)) {
                 printf("Error en línea %d: Registro inválido %s\n", numero_linea, registro);

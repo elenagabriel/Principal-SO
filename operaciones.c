@@ -1,29 +1,52 @@
+#include "operaciones.h"
 
-//int a=5;
-//int b;
-//b=a;
+#include <stdio.h>
+#include <string.h>
 
-int restar(int a, int b){
-    return a-b;
+//Punteros a las variables de la ALU
+
+int *Ax = &Axval;
+int *Bx = &Bxval;
+int *Cx = &Cxval;
+int *Dx = &Dxval;
+
+//Valores de las variables de la ALU
+int Axval = 0;
+int Bxval = 0;
+int Cxval = 0;
+int Dxval = 0;
+
+//MOV - ASIGNACIÓN
+int mov(int a, int b){
+    a=5;
+    int b;
+    b=a;
 }
 
-int sumar(int a, int b){
+//
+int add(int a, int b){
     return a+b;
 }
 
-int multiplicar(int a, int b){
-    return a*b;
-} 
+int sub(int a, int b){
+    return a-b;
+}
 
-int division(int a, int b){
+int mul(int a, int b){
+    return a*b;
+}
+
+int div(int a, int b){
     if(b==0){
         printf("error. No se puede dividir entre cero\n");
     }
      return a/b;
 }
 
-/*int incremento = a;
-    incremento++;
+int inc(int a){
+   return a++;
+}
 
-int decremento = a;
-    decremento--;*/
+int dec(int a){
+  return a--;  
+}
