@@ -1,7 +1,5 @@
 #ifndef INTERPRETE_H
 #define INTERPRETE_H
-
-
 #include <string.h>
 #include <stdio.h>
 
