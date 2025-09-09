@@ -1,8 +1,12 @@
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "interprete.h"
 #include "operaciones.h"
+
+int proceso_id = -1;
+char nombre_archivo_actual[50] = "";
 
 int interprete(char texto[50])
 { // ejecutar o salir
@@ -12,6 +16,8 @@ int interprete(char texto[50])
     int bandera = 0;
     char nombre_archivo[20];
     int comando_valido;
+
+    
 
     if (strcmp(texto, "salir\n") == 0 || strcmp(texto, "Salir\n") == 0 || strcmp(texto, "SALIR\n") == 0)
     {
@@ -41,6 +47,9 @@ int interprete(char texto[50])
 
                     // Aquí puedes procesar el archivo...
                     strcpy(nombre_archivo, token); // ahora sí guardamos el nombre
+                    proceso_id++; //se ira incrementando el id de cada proceso
+                    strcpy(nombre_archivo_actual, nombre_archivo); //nos guardara el archivo actual
+                    
                     validar_archivo(nombre_archivo);
                 }
                 else
@@ -65,7 +74,7 @@ int interprete(char texto[50])
 void validar_archivo(char *nombre_archivo)
 {
     printf("\nTabla de Registros:\n");
-    printf("ID\tPC\tAx\tBx\tCx\tDx\tIR\t\tStatus\n");
+    printf("ID\tPC\tAx\tBx\tCx\tDx\tProceso\t\tIR\t\tStatus\n");
     FILE *archivo = fopen(nombre_archivo, "r");
 
     char linea[20];

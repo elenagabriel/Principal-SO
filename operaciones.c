@@ -1,6 +1,13 @@
+
 #include "operaciones.h"
 #include <stdio.h>
 #include <string.h>
+
+  extern int proceso_id;
+  extern char nombre_archivo_actual[50];
+
+
+
 
 // Valores de las variables de la ALU
 int Axval = 0;
@@ -18,8 +25,8 @@ int *Dx = &Dxval;
 
 //MOV - ASIGNACIÓN
 int mov(int a, int b){
-    a=b;
-    return a;
+    
+    return b;
 }
 
 //
@@ -50,14 +57,15 @@ int dec(int a){
 }
 
 void tabla(int numero_linea, char copia_linea[20], char err[40]){
-    //printf("ID\t"); // ID del proceso, osea cuantos programas ejecutó anteriormente, si es el primero ID = 0, si es el segundo ID = 1, etc
-    printf("\t%d\t", numero_linea); // El contador con el número de la linea sigueinte
-    printf("\t\t%d\t", Axval);
-    printf("%d\t", Bxval);
-    printf("%d\t", Cxval);  
-    printf("%d\t", Dxval);
-    //printf("Proceso\t", ); // El nombre del archivo que se esta ejecutando
-    printf("%s\t", copia_linea); //Linea de instrucción actual
-    printf("\t%s", err); //Los errores, correcto, (Error, division por 0), (ERROR, registro invalido) etc
+   
+    printf("%-3d\t", proceso_id); // ID del proceso, osea cuantos programas ejecutó anteriormente, si es el primero ID = 0, si es el segundo ID = 1, etc
+    printf("%-3d\t", numero_linea); // El contador con el número de la linea sigueinte
+    printf("%-4d\t", Axval);
+    printf("%-4d\t", Bxval);
+    printf("%-4d\t", Cxval);  
+    printf("%-4d\t", Dxval);
+    printf("%-10s\t", nombre_archivo_actual ); // El nombre del archivo que se esta ejecutando
+    printf("%-10s\t", copia_linea); //Linea de instrucción actual
+    printf("%-40s", err); //Los errores, correcto, (Error, division por 0), (ERROR, registro invalido) etc
     printf("\n");
 }

@@ -7,4 +7,3 @@ int interprete(char texto[50]);
 void validar_archivo(char *nombre_archivo);
 
 #endif
-
