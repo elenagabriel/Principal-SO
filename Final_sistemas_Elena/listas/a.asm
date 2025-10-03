@@ -1,0 +1,91 @@
+MOV Ax,4r5a
+INC Fx,4
+DEC Vx df
+MOV Ax,hola
+MOV Bx,2
+MOV Ax,Bx
+MOV Cx,45
+ADD Ax,7
+ADD Bx,68
+ADD Cx,Dx
+ADD Cx,-2
+SUB Ax,5
+SUB Bx,35
+SUB Cx,Bx
+SUB Dx,Dx
+SUB Cx,Bx
+MUL Ax,5
+MUL Dx,10
+DIV Cx,-2
+DIV 45,0
+DIV Bx,Cx
+MOV Dx,100
+DIV Bx,0
+DIV Dx,2
+INC Ax
+INC Bx
+INC Cx
+INC Dx
+MOV Ax 27
+ADD Bx 2
+SUB Cx 1
+MUL Dx 2
+DIV Bx 2
+INC Ax,5
+INC 5
+INC Rx
+DEC Ax
+DEC Bx
+DEC Cx
+DEC Dx
+dec Ax
+DEC Ax,1
+DEC ax
+MOV Rx,5
+ADD Ax Cx
+
+DIV
+MOV 
+ADD
+SUB 
+MUL
+ 
+INC
+DEC
+MOV Ax 
+ADD Bx
+SUB Cx, 1
+MOV Ax,a
+ADD Ax,b
+SUB Cx,c
+MUL Dx,d
+ADD Ax,1f
+DIV Ax,e
+ADD Ax,2
+ADD Bx,2
+ADD Cx,2
+ADD Dx,2
+ADD Ax,a
+ADD Bx,b
+ADD Cx,C
+ADD Dx,D
+SUB Ax,2
+SUB Bx,2
+SUB Cx,2
+SUB Dx,2
+SUB Ax,A
+SUB Bx,B
+SUB Cx,c
+SUB Dx,d
+MUL Ax,2
+MUL Bx,2
+MUL Cx,2
+MUL Dx,2
+MUL Ax,a
+MUL Bx,B
+MUL Zx,c
+MUL Dx,D
+END
+mol Dx,Cx 
+DEC Ax
+END

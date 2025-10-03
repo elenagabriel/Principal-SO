@@ -1,0 +1,13 @@
+SUB Dx,Dx
+SUB Cx,Bx
+MUL Ax,5
+MUL Dx,10
+DIV Cx,-2
+DIV 45,0
+DIV Bx,Cx
+MOV Dx,100
+DIV Bx,0
+DIV Dx,2
+INC Ax
+INC Bx
+END

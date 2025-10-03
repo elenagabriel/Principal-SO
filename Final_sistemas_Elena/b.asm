@@ -1,0 +1,4 @@
+MOV Ax,4r5a
+INC Fx,4
+DEC Vx df
+END
